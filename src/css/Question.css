@@ -9,11 +9,32 @@ label {
     color: #fff !important;
 }
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
-    border: 2px solid #f05262;
+    border: 2px solid #31e7b6;
 }
 /*.inc-margin-top{*/
     /*padding-top: 100px;*/
 /*}*/
+.c2cLogo img{
+    margin:0;
+    height: 60px;
+    width: auto;
+}
+.c2cLogo{
+    padding: 0 10px
+}
+.bar{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    margin: 0;
+}
+.username{
+    display: flex;
+    justify-content: left;
+    flex: 1;
+    font-size: 30px;
+    font-weight: 600;
+}
 .question-card{
     background: #4a4a4a ;
     width: 90vw;
@@ -22,18 +43,21 @@ label {
     margin-right: auto;
     padding-left: 20px;
     border-radius: 3px;
-    border-left: 6px solid #f05262 !important;
+    border-left: 6px solid #31e7b6 !important;
 }
 @media only screen and (min-width: 600px) {
     .question-card{
         width: 65vw;
+    }
+    .bar{
+        width: 100vw;
     }
 }
 .input-para {
     margin-right: 10px;
 }
 .green-option {
-    border: 2px solid #f05262;
+    border: 2px solid #31e7b6;
 }
 .red-option {
     border: 2px solid #ff8a80 ;
@@ -57,7 +81,7 @@ label {
     position: relative;
 }
 .answerOption {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     list-style-type: none;
     cursor: pointer !important;
     padding-right: 80px;
@@ -78,7 +102,7 @@ label {
     background-color: #4e4d4d;
 }
 .answerOption.selected .option-letter{
-    background-color: #fffcfc;
+    background-color: #31e7b6;
     color: #000;
 }
 .answerOption.wrongattempted .option-letter{
