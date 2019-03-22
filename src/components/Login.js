@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert';
 import './../css/login.css';
 import c2cLogo from './../images/C2C_Logo.svg';
+import baseurl from '../baseurl'
 
 let userSocket;
 
@@ -11,21 +12,22 @@ class Login extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: ''
+            username: '',
+            screen: null,
+            pass:''
         }
         console.log("ionside login constructior");
-        userSocket = io(`http://139.59.7.242:80`);
+        userSocket = io(baseurl);
         userSocket.on('connect', () => {
             console.log("connected");
         });
+        window.uc = userSocket
         //below function is when user has already joined then redirect to next page
         userSocket.on('joinToken', (data) => {
             console.log("!CALLED!");
             userSocket.disconnect();
             this.props.history.push('/question');
-
         });
-
         userSocket.on('disconnect', () => {
             console.log("disconnected");
         });
@@ -46,18 +48,40 @@ class Login extends React.Component {
             this.setState({ username: '' });
         });
     }
+    adminJoin() {
+        localStorage.setItem('adminId',this.state.username)
+        localStorage.setItem('adminPass',this.state.pass)
+        this.props.history.push('/admin-c2c-hidden-97');
+
+    }
+    statsJoin() {
+        localStorage.setItem('statsId',this.state.username)
+        localStorage.setItem('statsPass',this.state.pass)
+        this.props.history.push('/stats');
+    }
     render() {
         return (
             <div className="login-container" style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                 <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img src={c2cLogo} alt="code2create" height="150px" />
                 </div>
-                <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div className="login-wrapper z-depth-5">
-                        <h4 style={{margin:0}}>Username: </h4>
-                        <input style={{color:'white'}} type="text" onChange={this.usernameChange} />
+                <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
+                    <div className="login-wrapper z-depth-5" style={{position: 'relative'}}>
+                        <h4 style={{ margin: 0 }}>
+                            {!this.state.screen ? 'Username: '
+                                : this.state.screen === 'admin' ? 'Admin Token' : 'StatsListener Token'}
+                        </h4>
+                        <input style={{ color: 'white' }} type="text" placeholder={!this.state.screen?'':'Enter your username here'} value={this.state.username} onChange={this.usernameChange} />
+                        {this.state.screen?<input style={{ color: 'white' }} type="text" type="password" autoComplete="new-password" placeholder='Enter your password here' value={this.state.pass} onChange={(e)=>this.setState({pass:e.target.value})} />:<span/>}
 
-                        <input type="submit" value="Join" className="btn" onClick={this.handleJoin} />
+                        <input type="submit" value="Join" className="btn" onClick={
+                            !this.state.screen ? this.handleJoin
+                                : this.state.screen === 'admin' ? this.adminJoin.bind(this) : this.statsJoin.bind(this)} />
+                        <span style={{ position: "absolute", bottom: 0, right: 0, fontSize:15, cursor:'pointer' }}>
+                            <span onClick={()=>this.setState({screen:null})}>User</span>/
+                            <span onClick={()=>this.setState({screen:'admin'})}>Admin</span>/
+                            <span onClick={()=>this.setState({screen:'statsListen'})}>Stats</span>
+                        </span>
                     </div>
                 </div>
                 <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

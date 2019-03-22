@@ -4,7 +4,8 @@ import io from 'socket.io-client';
 import CircularProgressbar from 'react-circular-progressbar';
 import './../../css/common.css';
 import './../../css/circularProgress.css';
-import c2cLogo from './../../images/logowhite.png';
+import c2cLogo from './../../images/C2C_Logo.svg';
+import baseurl from '../../baseurl'
 
 let statsSocket ;
 
@@ -17,13 +18,13 @@ class Stats extends React.Component{
             empty : true,
             progress : 0.5,
             barWait : false,
-            currentQuote : 'Hi! Welcome To Learn To Complete.',
+            currentQuote : 'Hi! Welcome To Code2Create.',
             winners : [],
             gameEnd : false
         }
-        statsSocket = io(`http://139.59.7.242:80`);
+        statsSocket = io(baseurl);
         statsSocket.on('connect', () => {
-            statsSocket.emit('statsListener', {username: 'akshitgrover', password: 'c2c_2.0'},(data) => {
+            statsSocket.emit('statsListener', {username: localStorage.getItem('statsId'), password: localStorage.getItem('statsPass')},(data) => {
                 console.log(data);
             });
         });
@@ -92,11 +93,11 @@ class Stats extends React.Component{
         let colors = ['bluee', 'greenn', 'redd', 'blackk'];
         return(
             <div>
-            <div className="c2cLogo" >
-                <img src={ c2cLogo }  alt="code2create" />
+            <div className="c2cLogo" style={{margin:'10px 20px 40px'}}>
+                <img src={ c2cLogo }  alt="code2create" style={{height:100}} />
             </div>
                 { this.state.empty  &&  !this.state.gameEnd && <div className="center-align make-card z-depth-5">
-                        <h3 className=" margin-0"> {this.state.currentQuote} </h3>
+                        <h3 className=" margin-0" style={{fontSize:30}}> {this.state.currentQuote} </h3>
                     </div>
                     }
 

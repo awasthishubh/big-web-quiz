@@ -20,7 +20,7 @@ label {
     width: auto;
 }
 .c2cLogo{
-    padding: 0 10px
+    padding: 0 20px
 }
 .bar{
     display: flex;
@@ -32,7 +32,7 @@ label {
     display: flex;
     justify-content: left;
     flex: 1;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 .question-card{

@@ -5,6 +5,7 @@ import renderHTML from 'react-render-html';
 import './../css/Question.css';
 import './../css/common.css';
 import c2cImage from './../images/C2C_Logo.svg';
+import baseurl from '../baseurl'
 
 let userSocket2;
 class Question extends React.Component {
@@ -12,15 +13,16 @@ class Question extends React.Component {
     super();
     this.state = {
       qnum: '1',
-      qstmt: 'vknbjrtnbjrtbnjtr',
-      qchoice: 'rbt',
+      qstmt: '',
+      qchoice: [],
       responseIndex: -1,
       response: '',
       userIndex: -1,
-      isDisabled: '',
-      showQuestion: true
+      isDisabled: false,
+      showQuestion: false
     }
-    userSocket2 = io(`http://139.59.7.242:80`);
+    userSocket2 = io(baseurl);
+    window.us=userSocket2
     userSocket2.on('connect', () => {
       let username = localStorage.getItem('username');
       userSocket2.emit('join', { username: username }, (err) => {
@@ -48,6 +50,7 @@ class Question extends React.Component {
     userSocket2.on('corResponse', (data) => {
       console.log(data);
       this.setState({ responseIndex: parseInt(data.dataQues) });
+      this.setState({isDisabled:true})
     });
 
     this.postResponse = this.postResponse.bind(this);
@@ -98,7 +101,7 @@ class Question extends React.Component {
       <div>
         <div className="question-card z-depth-5 bar">
           <div className="username">
-              <h4>Hello {localStorage.username}</h4>
+              <h4 style={{fontSize: 'inherit'}}>Hello {localStorage.username}</h4>
             </div>
           <div className="c2cLogo">
             <img src={c2cImage} alt="c2c" />
@@ -106,8 +109,8 @@ class Question extends React.Component {
         </div>
 
         {
-          !this.state.showQuestion && <div className="make-card z-depth-5">
-            <h3 className="center-align margin-0"> Get Ready to Answer or Scratch your heads with Head-Scratcher </h3>
+          !this.state.showQuestion && <div className="make-card z-depth-5" style={{margin:'50px auto'}}>
+            <h3 className="center-align margin-0" style={{fontSize:30}}> Get Ready to Answer or Scratch your heads with Head-Scratcher </h3>
           </div>
         }
 

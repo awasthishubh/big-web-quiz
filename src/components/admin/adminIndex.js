@@ -1,17 +1,17 @@
 import React from 'react';
 import io from 'socket.io-client';
 import swal from 'sweetalert';
-
+import baseurl from '../../baseurl'
 
 let adminSocket;
 class AdminIndex extends React.Component {
     constructor(){
         super();
         console.log("inside adin constructior");
-        adminSocket = io(`http://139.59.7.242:80`);
+        adminSocket = io(baseurl);
         adminSocket.on('connect', (back) => {
             console.log(back);
-            adminSocket.emit('adminLogin', {username: "akshitgrover", password: "c2c_2.0"}, (res) => {
+            adminSocket.emit('adminLogin', {username: localStorage.getItem('adminId'), password: localStorage.getItem('adminPass')}, (res) => {
                 console.log(res);
             })
         });
