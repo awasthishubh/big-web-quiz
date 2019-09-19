@@ -5,7 +5,7 @@
     padding: 20px;
     background: #4a4a4a;
     border-radius: 3px;
-    border-left: 6px solid #31e7b6 !important;
+    border-left: 6px solid #f05262 !important;
     font-weight: 600;
     font-size: 30px;
 }
@@ -32,5 +32,5 @@
     right: 40px;
 }
 .footer .fa {
-    color: #31e7b6 !important;
+    color: #f05262 !important;
 }

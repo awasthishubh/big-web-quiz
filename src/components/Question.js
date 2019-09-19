@@ -22,12 +22,14 @@ class Question extends React.Component {
       showQuestion: false
     }
     userSocket2 = io(baseurl);
-    window.us=userSocket2
+    window.us = userSocket2
     userSocket2.on('connect', () => {
       let username = localStorage.getItem('username');
       userSocket2.emit('join', { username: username }, (err) => {
         console.log("error is " + err.err);
-        swal("Oops!", err.err, "error");
+        swal("Oops!", err.err, "error").then(() => {
+          window.location.replace('/');
+        });
       });
     });
     userSocket2.on('getQue', (data) => {
@@ -50,7 +52,7 @@ class Question extends React.Component {
     userSocket2.on('corResponse', (data) => {
       console.log(data);
       this.setState({ responseIndex: parseInt(data.dataQues) });
-      this.setState({isDisabled:true})
+      this.setState({ isDisabled: true })
     });
 
     this.postResponse = this.postResponse.bind(this);
@@ -101,16 +103,16 @@ class Question extends React.Component {
       <div>
         <div className="question-card z-depth-5 bar">
           <div className="username">
-              <h4 style={{fontSize: 'inherit'}}>Hello {localStorage.username}</h4>
-            </div>
+            <h4 style={{ fontSize: 'inherit' }}>Hello {localStorage.username}</h4>
+          </div>
           <div className="c2cLogo">
             <img src={c2cImage} alt="c2c" />
           </div>
         </div>
 
         {
-          !this.state.showQuestion && <div className="make-card z-depth-5" style={{margin:'50px auto'}}>
-            <h3 className="center-align margin-0" style={{fontSize:30}}> Get Ready to Answer or Scratch your heads with Head-Scratcher </h3>
+          !this.state.showQuestion && <div className="make-card z-depth-5" style={{ margin: '50px auto' }}>
+            <h3 className="center-align margin-0" style={{ fontSize: 30 }}> Get Ready to Answer or Scratch your heads with Head-Scratcher </h3>
           </div>
         }
 

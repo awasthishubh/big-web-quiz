@@ -1,5 +1,5 @@
 .App{
-    background: url('./../images/Asset_1.svg') right bottom repeat rgb(48, 48, 48);
+    background: url('./../images/background.png') right bottom repeat rgb(48, 48, 48);
     min-height: 100vh;
     color: white;
     overflow-y: hidden;
@@ -20,7 +20,7 @@
 }
 .make-card{
     /*margin-top: 30vh;*/
-    border-left: 6px solid #31e7b6;
+    border-left: 6px solid #f05262;
     padding: 14px;
     width: 60vw;
     background: #4a4a4a;
@@ -49,7 +49,7 @@
 }
 .winners-card{
     /*margin-top: 30vh;*/
-    border-left: 6px solid #31e7b6;
+    border-left: 6px solid #f05262;
     padding: 14px;
     width: 60vw;
     font-size: 1.8rem;

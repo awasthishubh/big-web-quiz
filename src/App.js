@@ -28,15 +28,15 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
             <div>
-                {/* { this.state.isLoggedIn ?
+                { this.state.isLoggedIn ?
                     <Switch>
                         <Route exact path='/question' component={Question} />
                     </Switch> :
                     <Switch>
                         <Route exact path='/' component={Login} />
-                        <Route render={() => <h1>Page not found <Link to="/">Login</Link></h1>} />
+                        {/* <Route render={() => <h1>Page not found <Link to="/">Login</Link></h1>} /> */}
                     </Switch>
-                 } */}
+                 }
                  <Switch>
                      <Route exact path='/question' component={Question}  />
                      <Route exact path='/' component={Login}  />

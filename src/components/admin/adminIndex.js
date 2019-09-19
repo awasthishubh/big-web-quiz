@@ -73,9 +73,10 @@ class AdminIndex extends React.Component {
                 <br /><br />
                 <button className="btn" onClick={this.openQuiz} >Open Quiz</button>
                 <br /><br />
-                <button className="btn" onClick={this.saveScore} >Save Score</button>
-                <br /><br />
                 <button className="btn" onClick={this.getCorRes} >Show Response</button>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <button className="btn" onClick={this.saveScore} >Show Score</button>
+                
             </div>
         );
     }

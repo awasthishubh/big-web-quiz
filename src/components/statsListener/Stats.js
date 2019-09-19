@@ -33,7 +33,7 @@ class Stats extends React.Component{
             // console.log("Results are " + data.data);
             console.log(data.data);
             let newWinners = [];
-            for(let i=0;i<3;i++)
+            for(let i=0;i<2;i++)
             {
               newWinners.push(data.data[i]);
             }
@@ -130,7 +130,7 @@ class Stats extends React.Component{
                       <div className="winners-card">
                           <ul>
                             { winners.map(( name, i ) =>
-                                <li key={i} className="collection-item"> {i+1}. &nbsp; { name.username } -  { name.score } </li>
+                                <li key={i} className="collection-item"> {i+1}. &nbsp; { name.username } -  { name.points } - {name.duration/(1000*60)}mins </li>
                               )
 
                             }

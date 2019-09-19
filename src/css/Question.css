@@ -9,7 +9,7 @@ label {
     color: #fff !important;
 }
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
-    border: 2px solid #31e7b6;
+    border: 2px solid #f05262;
 }
 /*.inc-margin-top{*/
     /*padding-top: 100px;*/
@@ -43,7 +43,7 @@ label {
     margin-right: auto;
     padding-left: 20px;
     border-radius: 3px;
-    border-left: 6px solid #31e7b6 !important;
+    border-left: 6px solid #f05262 !important;
 }
 @media only screen and (min-width: 600px) {
     .question-card{
@@ -57,7 +57,7 @@ label {
     margin-right: 10px;
 }
 .green-option {
-    border: 2px solid #31e7b6;
+    border: 2px solid #f05262;
 }
 .red-option {
     border: 2px solid #ff8a80 ;
@@ -102,7 +102,7 @@ label {
     background-color: #4e4d4d;
 }
 .answerOption.selected .option-letter{
-    background-color: #31e7b6;
+    background-color: #f05262;
     color: #000;
 }
 .answerOption.wrongattempted .option-letter{

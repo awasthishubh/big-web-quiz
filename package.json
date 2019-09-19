@@ -2,8 +2,10 @@
   "name": "big-web-quiz",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://awasthishubh.github.io/",
   "dependencies": {
     "axios": "^0.17.1",
+    "node-sass": "^4.12.0",
     "progressbar.js": "^1.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -17,6 +19,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "socket.io-client": "^2.0.4",
+    "surge": "^0.21.3",
     "sweetalert": "^2.1.0"
   },
   "scripts": {
@@ -24,9 +27,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path scss /home/shubh/Downloads/materialize-src-v1.0.0/materialize-src/sass/materialize.scss   /home/shubh/Downloads/materialize-src-v1.0.0/materialize-src/sass/materialize.css",
+    "deploy": "gh-pages -d dist",
+    "surge": "surge"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "redux-immutable-state-invariant": "^2.1.0"
   }
 }

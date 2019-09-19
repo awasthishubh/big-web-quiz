@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert';
 import './../css/login.css';
-import c2cLogo from './../images/C2C_Logo.svg';
+import l2cLogo from './../images/logowhite.png';
 import baseurl from '../baseurl'
 
 let userSocket;
@@ -63,7 +63,7 @@ class Login extends React.Component {
         return (
             <div className="login-container" style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                 <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={c2cLogo} alt="code2create" height="150px" />
+                    <img src={l2cLogo} alt="code2create" height="150px" />
                 </div>
                 <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
                     <div className="login-wrapper z-depth-5" style={{position: 'relative'}}>
