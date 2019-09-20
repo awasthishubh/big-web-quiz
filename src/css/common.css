@@ -47,6 +47,10 @@
 .blue{
   color: blue;
 }
+.winners-row{
+    background:#eb6c79;
+    border-color: #eb6c79;
+}
 .winners-card{
     /*margin-top: 30vh;*/
     border-left: 6px solid #f05262;
@@ -54,7 +58,7 @@
     width: 60vw;
     font-size: 1.8rem;
     text-transform: capitalize;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: center;
     background: #4a4a4a;
     margin-right: auto;

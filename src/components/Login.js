@@ -62,8 +62,8 @@ class Login extends React.Component {
     render() {
         return (
             <div className="login-container" style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={l2cLogo} alt="code2create" height="150px" />
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img src={l2cLogo} alt="code2create" className="logo"/>
                 </div>
                 <div style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
                     <div className="login-wrapper z-depth-5" style={{position: 'relative'}}>

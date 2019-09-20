@@ -59,6 +59,18 @@ class Question extends React.Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
+  // componentDidMount() {
+  //   window.addEventListener("click", function () {
+  //     var
+  //       el = document.documentElement
+  //       , rfs =
+  //         el.requestFullScreen
+  //         || el.webkitRequestFullScreen
+  //         || el.mozRequestFullScreen
+  //       ;
+  //     rfs.call(el);
+  //   });
+  // }
 
   postResponse = () => {
     if (this.state.response.length <= 0) {
@@ -219,11 +231,11 @@ class Question extends React.Component {
                 </ul>
               </div>
               <br />
-              {(this.state.isDisabled || this.state.responseIndex !== -1) ?
-                <button className="btn" disabled={true} >Submitted</button>
-                :
-                <button className="btn" onClick={this.postResponse} >Submit</button>
-              }
+              {/* {(this.state.isDisabled || this.state.responseIndex !== -1) ?
+                // <button className="btn" disabled={true} >Submitted</button>
+                // :
+                // <button className="btn" onClick={this.postResponse} >Submit</button>
+              } */}
 
               <br />
               <br /><br />

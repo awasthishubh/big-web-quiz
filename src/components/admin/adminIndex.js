@@ -17,8 +17,9 @@ class AdminIndex extends React.Component {
         });
 
         adminSocket.on('getAdminToken', (data) => {
-
-            adminSocket.emit('open');
+            adminSocket.emit('open', (err) => {
+                console.log(err);
+            })
         });
 
         adminSocket.on('disconnect', ()=> {
