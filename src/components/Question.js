@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import renderHTML from 'react-render-html';
 import './../css/Question.css';
 import './../css/common.css';
-import c2cImage from './../images/C2C_Logo.svg';
+import c2cImage from './../images/LTCWhite.png';
 import baseurl from '../baseurl'
 
 let userSocket2;
@@ -112,7 +112,7 @@ class Question extends React.Component {
     console.log(options);
     const alpha = ['A', 'B', 'C', 'D'];
     return (
-      <div>
+      <div className="noselect">
         <div className="question-card z-depth-5 bar">
           <div className="username">
             <h4 style={{ fontSize: 'inherit' }}>Hello {localStorage.username}</h4>

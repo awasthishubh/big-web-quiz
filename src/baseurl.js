@@ -1,1 +1,1 @@
-export default 'https://hsapi.acmvit.in'
+export default 'http://34.93.93.97/'

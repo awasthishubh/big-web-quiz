@@ -2,7 +2,7 @@
   "name": "big-web-quiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://awasthishubh.github.io/",
+  "homepage": "https://hs.acmvit.in",
   "dependencies": {
     "axios": "^0.17.1",
     "node-sass": "^4.12.0",
@@ -29,7 +29,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass --include-path scss /home/shubh/Downloads/materialize-src-v1.0.0/materialize-src/sass/materialize.scss   /home/shubh/Downloads/materialize-src-v1.0.0/materialize-src/sass/materialize.css",
-    "deploy": "gh-pages -d dist",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "surge": "surge"
   },
   "devDependencies": {

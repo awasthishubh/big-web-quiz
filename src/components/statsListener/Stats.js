@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import CircularProgressbar from 'react-circular-progressbar';
 import './../../css/common.css';
 import './../../css/circularProgress.css';
-import c2cLogo from './../../images/C2C_Logo.svg';
+import c2cLogo from './../../images/logowhite.png';
 import baseurl from '../../baseurl'
 
 let statsSocket;
